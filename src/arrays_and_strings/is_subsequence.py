@@ -14,9 +14,14 @@ Input: s = "axc", t = "ahbgdc"
 Output: false
 """
 
-# 3ms, beats 90.22%
+# 0ms, beats 100%
+# 12 MB, beats 16%
 def is_subsequence(s, t):
 
-
-
-    return True
+    i, j = 0, 0
+    
+    while i < len(s) and j < len(t):
+        if s[i] == t[j]:
+            i += 1
+        j += 1
+    return i == len(s)
