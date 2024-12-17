@@ -18,25 +18,25 @@ Explanation: There is no common prefix among the input strings.
 
 # X ms, beats X
 # Y MB, beats Y
-def longest_common_prefix(strings):
+def longest_common_prefix(strs):
 
-    strings.sort()
-    first_word = strings.pop(0)
+    strs.sort()
+    first_word = strs.pop(0)
     prefix = ""
 
     for i in range(len(first_word)):
 
         match_count = 0
 
-        for j in range(len(strings)):
+        for j in range(len(strs)):
 
-            if strings[j][i] == first_word[i]:
+            if strs[j][i] == first_word[i]:
                 
                 match_count += 1
         
             j += 1
 
-        if match_count == len(strings):
+        if match_count == len(strs):
             prefix +=  first_word[i]
 
         i += 1
