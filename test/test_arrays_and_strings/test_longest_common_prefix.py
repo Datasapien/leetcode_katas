@@ -38,3 +38,23 @@ def test_returns_correct_prefix_for_multiple_chars():
     result = longest_common_prefix(test_input)
 
     assert result == expected_output
+
+def test_returns_correct_prefix_for_first_test_case():
+
+    test_input = ["flower","flow","flight"]
+
+    expected_output = "fl"
+    
+    result = longest_common_prefix(test_input)
+
+    assert result == expected_output
+    
+def test_returns_correct_prefix_for_first_test_case():
+
+    test_input = ["cir","car"]
+
+    expected_output = "c"
+    
+    result = longest_common_prefix(test_input)
+
+    assert result == expected_output

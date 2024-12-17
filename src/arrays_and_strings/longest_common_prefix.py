@@ -16,29 +16,46 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 """
 
-# X ms, beats X
-# Y MB, beats Y
+# 1 ms, beats 46%
+# 13 MB, beats 14%
 def longest_common_prefix(strs):
 
-    strs.sort()
-    first_word = strs.pop(0)
+    if not strs:
+        return ""
+
+    sorted_list = sorted(strs, key=len)
+    shortest_word = sorted_list.pop(0)
+
     prefix = ""
 
-    for i in range(len(first_word)):
+    for i in range(len(shortest_word)):
 
         match_count = 0
 
-        for j in range(len(strs)):
+        for j in range(len(sorted_list)):
 
-            if strs[j][i] == first_word[i]:
+            if sorted_list[j][i] == shortest_word[i]:
                 
                 match_count += 1
         
             j += 1
 
-        if match_count == len(strs):
-            prefix +=  first_word[i]
+        if match_count == len(sorted_list) and i == len(prefix):
+            prefix += shortest_word[i]
 
         i += 1
 
+    return prefix
+
+# 0 ms, beats 100%
+# 13 MB, beats 5%
+def longest_common_prefix(strs):
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for string in strs[1:]:
+        while string.find(prefix) != 0:
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
     return prefix
