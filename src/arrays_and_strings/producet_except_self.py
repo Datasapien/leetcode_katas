@@ -22,4 +22,10 @@ Output: [0,0,9,0,0]
 
 def product_except_self(nums):
 
-    return nums
+    new_nums = []
+
+    for i in range(len(nums)):
+        
+        new_nums.append()
+
+    return new_nums
