@@ -12,16 +12,16 @@ Input: nums = [-1,-100,3,99], k = 2
 Output: [3,99,-1,-100]
 """
 
-# GPT solution
 # 4 ms, beats 58%
 # 23 MB, beats 28%
 
 def rotate_array(nums, k):
 
+    # Adjusts k to be within the bounds of the length of the list
     k = k % len(nums)
 
-    last_k_elements = nums[:-k]
     first_k_elements = nums[-k:]
+    last_k_elements = nums[:-k]
 
     #Ensures original list updated in place
     nums[:] = first_k_elements + last_k_elements
