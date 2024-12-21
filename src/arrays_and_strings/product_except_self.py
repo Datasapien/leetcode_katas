@@ -25,7 +25,14 @@ def product_except_self(nums):
     new_nums = []
 
     for i in range(len(nums)):
+
+        multiplier = 1
+
+        list_to_multiply = nums[i+1:] + nums[:i]
+
+        for item in list_to_multiply:
+            multiplier *= item
         
-        new_nums.append()
+        new_nums.append(multiplier)
 
     return new_nums
