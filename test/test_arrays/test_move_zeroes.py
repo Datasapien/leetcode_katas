@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.move_zeroes import move_zeroes
+from src.arrays.move_zeroes import move_zeroes
 
 def test_returns_list():
     test_input = [0]

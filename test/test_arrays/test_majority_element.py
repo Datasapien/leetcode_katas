@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.majority_element import majority_element
+from src.arrays.majority_element import majority_element
 
 def test_returns_int():
     test_input = [0]

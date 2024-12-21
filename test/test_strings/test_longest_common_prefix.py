@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.longest_common_prefix import longest_common_prefix
+from src.strings.longest_common_prefix import longest_common_prefix
 
 def test_returns_str():
 

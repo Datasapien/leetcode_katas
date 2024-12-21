@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.is_subsequence import is_subsequence
+from src.strings.is_subsequence import is_subsequence
 
 def test_returns_boolean():
 

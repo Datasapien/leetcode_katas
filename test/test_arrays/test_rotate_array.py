@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.rotate_array import rotate_array
+from src.arrays.rotate_array import rotate_array
 
 def test_returns_list():
 

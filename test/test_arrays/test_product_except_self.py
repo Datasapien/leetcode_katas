@@ -1,5 +1,5 @@
 import pytest
-from src.arrays_and_strings.product_except_self import product_except_self
+from src.arrays.product_except_self import product_except_self
 
 def test_returns_list():
 
