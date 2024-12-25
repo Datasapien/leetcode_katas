@@ -19,7 +19,27 @@ Input: nums = [1]
 Output: 1
 """
 
-# :)
-def single_number(nums):
+# 5000 ms, beats 5%
+# 14 MB, beats 27%
 
-    pass
+def xsingle_number(nums):
+
+    for num in nums:
+        if nums.count(num) == 1:
+            return num
+
+    return 0
+
+# XOR method - uses ^ operator
+# https://www.geeksforgeeks.org/get-the-logical-xor-of-two-variables-in-python/
+# 2 ms, beats 75%
+# 14 MB, beats 35%
+
+def single_number(nums):
+    uniq_num = 0
+
+    for num in nums:
+        # Concept of XOR
+        uniq_num ^= num
+        
+    return uniq_num
