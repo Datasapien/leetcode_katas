@@ -1,5 +1,6 @@
 # https://algomaster.io/practice/dsa-patterns
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+# https://stackoverflow.com/questions/2474015/getting-the-index-of-the-returned-max-or-min-item-using-max-min-on-a-list
 
 """
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
@@ -20,20 +21,47 @@ Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 """
 
-# :)
+# 149 ms, beats 7%
+# 19 MB, beats 16%
+
+def xmax_profit(prices):
+
+    if not prices or len(prices) < 2:
+        return 0
+
+    # initialised to infinity to ensure any price in list is smaller
+    min_price = float('inf')
+    max_profit = 0
+
+    for price in prices:
+
+        min_price = min(min_price, price)
+
+        profit = price - min_price
+
+        max_profit = max(max_profit, profit)
+
+    return max_profit
+
+# Kadane's algorithm
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4868897/most-optimized-kadane-s-algorithm-java-c-python-rust-javascript
+# 50 ms, beats 74%
+# 20 MB, beats 6%
 
 def max_profit(prices):
 
-    max_profit = 0
+    if not prices or len(prices) < 2:
+        return 0
 
-    if len(prices) == 0 or prices == sorted(prices, reverse=True):
-        return max_profit
+    buy = prices[0]
+    profit = 0
 
-    index_min = min(range(len(prices)), key=prices.__getitem__)
-    index_max = max(range(len(prices)), key=prices.__getitem__)
-    
-    if index_min < index_max:
+    for i in range(1, len(prices)):
 
-        max_profit = prices[index_max] - prices[index_min]
+        if prices[i] < buy:
+            buy = prices[i]
 
-    return max_profit
+        if (prices[i] - buy) > profit:
+            profit = prices[i] - buy
+
+    return profit
