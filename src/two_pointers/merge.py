@@ -28,9 +28,11 @@ The result of the merge is [1].
 Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 """
 
-# X
+# 0 ms, beats 100%
+# 12 MB, beats 21%
+# This code works, but uses .sort() - use pointers instead :')
 
-def merge(nums1, m, nums2, n):
+def xmerge(nums1, m, nums2, n):
 
     for i in range(n):
 
@@ -38,4 +40,35 @@ def merge(nums1, m, nums2, n):
 
     nums1.sort()
         
+    return nums1
+
+"""
+Three pointers: i, j and k
+i points to last digit of nums1 (before all the 0s)
+j points to last digit of nums2
+k points to last index of nums1 (final 0)
+
+Need to find which value will fill the last position: the value at nums1[i] or nums2[j]. Once found, populate nums1[k] with this value and decrement k and i/j (whichever was larger). Repeat until all values in nums2 have been compared (ie until j = -1)
+"""
+
+# 0 ms, beats 100%
+# 13 MB, beats 13%
+
+def merge(nums1, m, nums2, n):
+
+    i = m -1
+    j = n -1
+    k = m + n - 1
+
+    while j >= 0:
+
+        if i >= 0 and nums1[i] > nums2[j]:
+            nums1[k] = nums1[i]
+            i -= 1
+        else:
+            nums1[k] = nums2[j]
+            j -= 1
+
+        k -= 1
+
     return nums1
