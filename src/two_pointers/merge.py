@@ -32,4 +32,10 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 def merge(nums1, m, nums2, n):
 
+    for i in range(n):
+
+        nums1[m+i] = nums2[i]
+
+    nums1.sort()
+        
     return nums1
