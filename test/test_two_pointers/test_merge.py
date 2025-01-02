@@ -52,3 +52,16 @@ def test_returns_expected_output_example_3():
     result = merge(test_nums1, test_m, test_nums2, test_n)
 
     assert result == expected_output
+
+def test_returns_expected_output_example_4():
+
+    test_nums1 = [2,0]
+    test_m = 1
+    test_nums2 = [1]
+    test_n = 1
+
+    expected_output = [1,2]
+    
+    result = merge(test_nums1, test_m, test_nums2, test_n)
+
+    assert result == expected_output
